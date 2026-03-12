@@ -1,0 +1,63 @@
+sources:
+  - name: CoinDesk
+    url: https://www.coindesk.com/arc/outboundfeeds/rss
+    language: en
+    focus: Crypto/Web3
+    update_frequency: high
+    notes: crypto-heavy; recommend separate Crypto/Web3 tag to avoid overwhelming fintech
+
+  - name: TechCrunch
+    url: https://techcrunch.com/feed/
+    language: en
+    focus: Funding/Product (general tech)
+    update_frequency: high
+    notes: full-site feed; noisy; requires strong fintech keyword filtering
+
+  - name: The Block
+    url: https://www.theblock.co/rss.xml
+    language: en
+    focus: Crypto + Policy
+    update_frequency: high
+    notes: crypto-heavy; good for policy/regulation in crypto context; consider separate tag
+
+  - name: The Fintech Times
+    url: https://thefintechtimes.com/feed/
+    language: en
+    focus: Payments/Digital Banking/RegTech
+    update_frequency: high
+    notes: fintech-focused; high relevance
+
+  - name: Sequoia Capital Blog
+    url: https://www.sequoia.com/feed/
+    language: en
+    focus: VC/Trends
+    update_frequency: medium
+    notes: opinion/investment perspective; not pure news; use as supplemental source
+
+  - name: Tearsheet
+    url: https://tearsheet.co/feed/
+    language: en
+    focus: Banking Tech/Payments
+    update_frequency: high
+    notes: fintech/financial services industry-focused; high relevance
+
+  - name: Financial Conduct Authority (FCA)
+    url: https://www.fca.org.uk/news/rss.xml
+    language: en
+    focus: Regulation/Policy
+    update_frequency: high
+    notes: official regulator news; very credible; UK-focused
+
+  - name: Finovate
+    url: https://finovate.com/feed/
+    language: en
+    focus: FinTech Innovation/Banking Tech
+    update_frequency: medium
+    notes: innovation and product showcase; good for new fintech tools and demos
+
+  - name: Bank for International Settlements (BIS)
+    url: https://www.bis.org/doclist/all_pressrels.rss
+    language: en
+    focus: Central Banking/Digital Currency/Payments
+    update_frequency: medium_high
+    notes: highly credible; macro/central bank perspective

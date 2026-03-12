@@ -1,0 +1,71 @@
+exclude_keywords:
+  # Careers / Hiring
+  - hiring
+  - we are hiring
+  - careers
+  - career
+  - job
+  - jobs
+  - recruiting
+  - job description
+  - hiring manager
+  - talent acquisition
+  - vacancy
+  - submit your resume
+  - apply now
+  - open position
+  - career opportunity
+
+  # Marketing / Sales CTA
+  - sponsored
+  - sponsored content
+  - paid post
+  - promotion
+  - special discount
+  - sign up today
+  - get started today
+  - click here
+  - try it free
+  - start your free trial
+  - free trial
+  - download now
+  - subscribe today
+  - book a demo
+  - request a demo
+  - contact us
+  - learn more
+  - in partnership with
+
+  # Events / PR
+  - webinar
+  - conference
+  - summit
+  - expo
+  - register now
+  - register for
+  - join us at
+  - booth number
+  - panel discussion
+  - fireside chat
+  - tickets available
+  - early bird pricing
+  - event recap
+  - event highlights
+
+  # Media content (optional: keep if you don't want podcasts/videos)
+  - podcast episode
+  - listen now
+  - watch now
+  - video interview
+  - transcript
+  - photo gallery
+
+  # Irrelevant tech / entertainment signals
+  - gaming industry
+  - entertainment news
+  - celebrity
+  - smartphone release
+  - consumer electronics
+  - movie release
+  - sports tech
+  - metaverse fashion
