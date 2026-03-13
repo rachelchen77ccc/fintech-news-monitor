@@ -646,46 +646,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   }
   @media (max-width: 680px) { .hero-visual { display: none; } }
 
-  /* ── Time range row ── */
-  .time-row {
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    align-items: center;
-  }
-  .time-label {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-right: 2px;
-  }
-  .time-btn {
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-secondary);
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    white-space: nowrap;
-    line-height: 1.4;
-    font-family: var(--font);
-  }
-  .time-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-light);
-  }
-  .time-btn.active {
-    background: var(--text-primary);
-    border-color: var(--text-primary);
-    color: #fff;
-  }
-
   /* ── Responsive ── */
   @media (max-width: 640px) {
     .page-wrapper { padding: 16px 16px 40px; }
@@ -695,8 +655,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .hero-body { padding: 20px 16px 18px 16px; gap: 0; }
     .tag-row { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
     .tag-row::-webkit-scrollbar { display: none; }
-    .time-row { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
-    .time-row::-webkit-scrollbar { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -727,27 +685,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           Stay on top of <span class="hero-title-accent">FinTech</span><br>in minutes.
         </h1>
         <p class="hero-subtitle">
-          A lightweight daily monitor that aggregates trusted RSS sources, filters noise,
-          and tags articles by topic&nbsp;&mdash; so you can scan faster and click through only what matters.
+          Every morning, fresh FinTech articles are pulled from 9 trusted RSS sources,
+          filtered for relevance, and tagged by topic &mdash; so you spend less time searching
+          and more time reading what actually matters.
         </p>
         <div class="hero-bullets">
-          <!-- Tag icon -->
-          <div class="bullet-item">
-            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9" cy="9" r="9" fill="#059669"/>
-              <path d="M5 9.5l2.5 2.5 5.5-5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="bullet-text"><strong>Filter by topic tags</strong> &middot; search across titles &amp; summaries</span>
-          </div>
-          <!-- Clock icon -->
-          <div class="bullet-item">
-            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9" cy="9" r="9" fill="#059669"/>
-              <circle cx="9" cy="9" r="4.5" stroke="white" stroke-width="1.4"/>
-              <path d="M9 7v2.2l1.3 1.3" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-            <span class="bullet-text"><strong>Choose a time window</strong> &mdash; Last 24h, 7&nbsp;days, or 30&nbsp;days</span>
-          </div>
           <!-- Refresh icon -->
           <div class="bullet-item">
             <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -757,7 +699,23 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               <path d="M11.2 6.5l.6 1.4 1.4-.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M6.8 11.5l-.6-1.4-1.4.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="bullet-text"><strong>Updated automatically every day</strong> from 9 trusted sources</span>
+            <span class="bullet-text"><strong>Refreshed daily</strong> &mdash; today's articles, every day, no stale content</span>
+          </div>
+          <!-- Filter icon -->
+          <div class="bullet-item">
+            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="9" fill="#059669"/>
+              <path d="M4.5 6h9M6.5 9h5M8 12h2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="bullet-text"><strong>Noise filtered out</strong> &mdash; no job posts, no ads, no off-topic content</span>
+          </div>
+          <!-- Tag icon -->
+          <div class="bullet-item">
+            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="9" fill="#059669"/>
+              <path d="M5 9.5l2.5 2.5 5.5-5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="bullet-text"><strong>Tagged by topic</strong> &mdash; filter by tag or search to find exactly what you need</span>
           </div>
         </div>
       </div>
@@ -805,13 +763,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         >
       </div>
       <button class="clear-btn" id="clearBtn" onclick="clearFilters()">✕ Clear</button>
-    </div>
-    <div class="time-row">
-      <span class="time-label">Time:</span>
-      <button class="time-btn active" data-window="0" onclick="setTimeWindow(0, this)">All time</button>
-      <button class="time-btn" data-window="86400" onclick="setTimeWindow(86400, this)">Last 24h</button>
-      <button class="time-btn" data-window="604800" onclick="setTimeWindow(604800, this)">Last 7 days</button>
-      <button class="time-btn" data-window="2592000" onclick="setTimeWindow(2592000, this)">Last 30 days</button>
     </div>
   </div>
 
@@ -876,42 +827,34 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   const CARDS = document.querySelectorAll('.article-card');
   let selectedTags = new Set();
   let searchQuery = '';
-  let timeWindow = 0; // seconds; 0 = all time
 
   function filterArticles() {
-    const now = Math.floor(Date.now() / 1000);
     let visible = 0;
 
     CARDS.forEach(card => {
       const tags    = card.dataset.tags ? card.dataset.tags.split(',') : [];
       const title   = card.dataset.title   || '';
       const summary = card.dataset.summary || '';
-      const ts      = parseInt(card.dataset.ts || '0', 10);
 
-      const tagMatch  = selectedTags.size === 0 ||
-                        [...selectedTags].some(t => tags.includes(t));
+      const tagMatch    = selectedTags.size === 0 ||
+                          [...selectedTags].some(t => tags.includes(t));
       const searchMatch = searchQuery === '' ||
                           title.includes(searchQuery) ||
                           summary.includes(searchQuery);
-      const timeMatch = timeWindow === 0 || (now - ts) <= timeWindow;
 
-      const show = tagMatch && searchMatch && timeMatch;
+      const show = tagMatch && searchMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
-    // Stats bar
     const bar = document.getElementById('statsBar');
     if (bar) bar.innerHTML = `Showing <span>${visible}</span> article${visible !== 1 ? 's' : ''}`;
 
-    // Empty state
     const empty = document.getElementById('emptyState');
     if (empty) empty.classList.toggle('visible', visible === 0);
 
-    // Clear button — show if any filter is active
     const clearBtn = document.getElementById('clearBtn');
-    const hasFilter = selectedTags.size > 0 || searchQuery !== '' || timeWindow !== 0;
-    if (clearBtn) clearBtn.classList.toggle('visible', hasFilter);
+    if (clearBtn) clearBtn.classList.toggle('visible', selectedTags.size > 0 || searchQuery !== '');
   }
 
   function toggleTag(tagKey, btn) {
@@ -939,22 +882,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     filterArticles();
   }
 
-  function setTimeWindow(seconds, btn) {
-    timeWindow = seconds;
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterArticles();
-  }
-
   function clearFilters() {
     selectedTags.clear();
     searchQuery = '';
-    timeWindow  = 0;
     document.getElementById('searchInput').value = '';
     document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.all-btn').classList.add('active');
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.time-btn[data-window="0"]').classList.add('active');
     filterArticles();
   }
 </script>

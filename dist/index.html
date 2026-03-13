@@ -390,46 +390,6 @@
   }
   @media (max-width: 680px) { .hero-visual { display: none; } }
 
-  /* ── Time range row ── */
-  .time-row {
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    align-items: center;
-  }
-  .time-label {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-right: 2px;
-  }
-  .time-btn {
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-secondary);
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    white-space: nowrap;
-    line-height: 1.4;
-    font-family: var(--font);
-  }
-  .time-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-light);
-  }
-  .time-btn.active {
-    background: var(--text-primary);
-    border-color: var(--text-primary);
-    color: #fff;
-  }
-
   /* ── Responsive ── */
   @media (max-width: 640px) {
     .page-wrapper { padding: 16px 16px 40px; }
@@ -439,8 +399,6 @@
     .hero-body { padding: 20px 16px 18px 16px; gap: 0; }
     .tag-row { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
     .tag-row::-webkit-scrollbar { display: none; }
-    .time-row { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
-    .time-row::-webkit-scrollbar { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -456,7 +414,7 @@
       <span class="site-dot"></span>
       FinTech News Monitor
     </div>
-    <div class="build-time">Updated 13 Mar 2026, 07:59 UTC</div>
+    <div class="build-time">Updated 13 Mar 2026, 11:51 UTC</div>
   </div>
 </header>
 
@@ -471,27 +429,11 @@
           Stay on top of <span class="hero-title-accent">FinTech</span><br>in minutes.
         </h1>
         <p class="hero-subtitle">
-          A lightweight daily monitor that aggregates trusted RSS sources, filters noise,
-          and tags articles by topic&nbsp;&mdash; so you can scan faster and click through only what matters.
+          Every morning, fresh FinTech articles are pulled from 9 trusted RSS sources,
+          filtered for relevance, and tagged by topic &mdash; so you spend less time searching
+          and more time reading what actually matters.
         </p>
         <div class="hero-bullets">
-          <!-- Tag icon -->
-          <div class="bullet-item">
-            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9" cy="9" r="9" fill="#059669"/>
-              <path d="M5 9.5l2.5 2.5 5.5-5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="bullet-text"><strong>Filter by topic tags</strong> &middot; search across titles &amp; summaries</span>
-          </div>
-          <!-- Clock icon -->
-          <div class="bullet-item">
-            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9" cy="9" r="9" fill="#059669"/>
-              <circle cx="9" cy="9" r="4.5" stroke="white" stroke-width="1.4"/>
-              <path d="M9 7v2.2l1.3 1.3" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-            <span class="bullet-text"><strong>Choose a time window</strong> &mdash; Last 24h, 7&nbsp;days, or 30&nbsp;days</span>
-          </div>
           <!-- Refresh icon -->
           <div class="bullet-item">
             <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -501,7 +443,23 @@
               <path d="M11.2 6.5l.6 1.4 1.4-.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M6.8 11.5l-.6-1.4-1.4.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="bullet-text"><strong>Updated automatically every day</strong> from 9 trusted sources</span>
+            <span class="bullet-text"><strong>Refreshed daily</strong> &mdash; today's articles, every day, no stale content</span>
+          </div>
+          <!-- Filter icon -->
+          <div class="bullet-item">
+            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="9" fill="#059669"/>
+              <path d="M4.5 6h9M6.5 9h5M8 12h2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="bullet-text"><strong>Noise filtered out</strong> &mdash; no job posts, no ads, no off-topic content</span>
+          </div>
+          <!-- Tag icon -->
+          <div class="bullet-item">
+            <svg class="bullet-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="9" fill="#059669"/>
+              <path d="M5 9.5l2.5 2.5 5.5-5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="bullet-text"><strong>Tagged by topic</strong> &mdash; filter by tag or search to find exactly what you need</span>
           </div>
         </div>
       </div>
@@ -568,18 +526,11 @@
       </div>
       <button class="clear-btn" id="clearBtn" onclick="clearFilters()">✕ Clear</button>
     </div>
-    <div class="time-row">
-      <span class="time-label">Time:</span>
-      <button class="time-btn active" data-window="0" onclick="setTimeWindow(0, this)">All time</button>
-      <button class="time-btn" data-window="86400" onclick="setTimeWindow(86400, this)">Last 24h</button>
-      <button class="time-btn" data-window="604800" onclick="setTimeWindow(604800, this)">Last 7 days</button>
-      <button class="time-btn" data-window="2592000" onclick="setTimeWindow(2592000, this)">Last 30 days</button>
-    </div>
   </div>
 
   <!-- Stats -->
   <div class="stats-bar" id="statsBar">
-    Showing <span id="statsCount">116</span> articles
+    Showing <span id="statsCount">117</span> articles
   </div>
 
   <!-- Article grid -->
@@ -588,13 +539,195 @@
     <article
       class="article-card"
       data-tags="Crypto_Web3"
-      data-title="bitcoin&#39;s crash to $60,000 warned stocks first – now they&#39;re following"
+      data-title="bitcoin&#39;s building steam and a $3 billion trigger could make it wild"
+      data-summary=""
+      data-ts="1773401320"
+      onclick="window.open('https://www.coindesk.com/daybook-us/2026/03/13/bitcoin-s-building-steam-and-a-usd3-billion-trigger-could-make-it-wild', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.coindesk.com/daybook-us/2026/03/13/bitcoin-s-building-steam-and-a-usd3-billion-trigger-could-make-it-wild" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin&#39;s building steam and a $3 billion trigger could make it wild</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">CoinDesk</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="bitcoin outperforms stocks, tops $72,000 even as dollar strengthens"
+      data-summary=""
+      data-ts="1773399178"
+      onclick="window.open('https://www.coindesk.com/markets/2026/03/13/bitcoin-outperforms-stocks-tops-usd72-000-even-as-dollar-strengthens', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.coindesk.com/markets/2026/03/13/bitcoin-outperforms-stocks-tops-usd72-000-even-as-dollar-strengthens" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin outperforms stocks, tops $72,000 even as dollar strengthens</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">CoinDesk</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="fundbank acquires irish blockchain startup trrue chain in €10m deal as institutional crypto demand rises"
+      data-summary="fundbank acquires trrue chain for €10m, boosting its us expansion into digital assets amid rising institutional demand. the post fundbank acquires irish blockchain startup trrue chain in €10m deal as institutional crypto demand rises appeared first on the fintech times ."
+      data-ts="1773396049"
+      onclick="window.open('https://thefintechtimes.com/fundbank-acquires-irish-blockchain-startup-trrue-chain-in-e10m-deal-as-institutional-crypto-demand-rises/', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://thefintechtimes.com/fundbank-acquires-irish-blockchain-startup-trrue-chain-in-e10m-deal-as-institutional-crypto-demand-rises/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">FundBank Acquires Irish Blockchain Startup Trrue Chain in €10m Deal as Institutional Crypto Demand Rises</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">The Fintech Times</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <p class="article-summary">FundBank acquires Trrue Chain for €10M, boosting its US expansion into digital assets amid rising institutional demand. The post FundBank Acquires Irish Blockchain Startup Trrue Chain in €10m Deal as Institutional Crypto Demand Rises appeared first on The Fintech Times .</p>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="bitcoin holds above $71,000, defying rising dollar, oil and u.s. bond yields"
+      data-summary=""
+      data-ts="1773394365"
+      onclick="window.open('https://www.coindesk.com/markets/2026/03/13/bitcoin-holds-above-usd71-000-defying-rising-dollar-oil-and-u-s-bond-yields', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.coindesk.com/markets/2026/03/13/bitcoin-holds-above-usd71-000-defying-rising-dollar-oil-and-u-s-bond-yields" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin holds above $71,000, defying rising dollar, oil and U.S. bond yields</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">CoinDesk</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="us sanctions dprk it facilitators over crypto transactions in $800 million scheme"
+      data-summary="u.s treasury sanctioned dprk it facilitators linked to crypto laundering networks that generated nearly $800 million for pyongyang in 2024."
+      data-ts="1773392843"
+      onclick="window.open('https://www.theblock.co/post/393518/us-sanctions-dprk-facilitators?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.theblock.co/post/393518/us-sanctions-dprk-facilitators?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">US sanctions DPRK IT facilitators over crypto transactions in $800 million scheme</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">The Block</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <p class="article-summary">U.S Treasury sanctioned DPRK IT facilitators linked to crypto laundering networks that generated nearly $800 million for Pyongyang in 2024.</p>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3,Payments,Open_Banking,Funding_MA"
+      data-title="singapore-based metacomp raises $35 million in funding backed by alibaba"
+      data-summary="the singapore-based company provides services that bridge traditional fiat payment rails and stablecoin settlement infrastructure."
+      data-ts="1773391217"
+      onclick="window.open('https://www.theblock.co/post/393509/metacomp-raises-35-million-alibaba?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.theblock.co/post/393509/metacomp-raises-35-million-alibaba?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Singapore-based MetaComp raises $35 million in funding backed by Alibaba</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">The Block</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <p class="article-summary">The Singapore-based company provides services that bridge traditional fiat payment rails and stablecoin settlement infrastructure.</p>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+        <span class="tag-badge">Payments</span>
+        
+        <span class="tag-badge">Open Banking</span>
+        
+        <span class="tag-badge">Funding MA</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="hsbc, standard chartered to be first recipients of hong kong stablecoin licenses: reports"
+      data-summary="hkma chief executive eddie yue said last month that the regulator had received 36 applications under the new framework."
+      data-ts="1773389012"
+      onclick="window.open('https://www.theblock.co/post/393502/hsbc-standard-chartered-hong-kong-stablecoin?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.theblock.co/post/393502/hsbc-standard-chartered-hong-kong-stablecoin?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">HSBC, Standard Chartered to be first recipients of Hong Kong stablecoin licenses: reports</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">The Block</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <p class="article-summary">HKMA Chief Executive Eddie Yue said last month that the regulator had received 36 applications under the new framework.</p>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
+      data-tags="Crypto_Web3"
+      data-title="bitcoin&#39;s recent crash to $60,000 warned stocks first – now they&#39;re following"
       data-summary=""
       data-ts="1773386643"
       onclick="window.open('https://www.coindesk.com/markets/2026/03/13/bitcoin-crashed-first-now-stocks-follow-cementing-btc-s-lead-indicator-cred', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
-        <a href="https://www.coindesk.com/markets/2026/03/13/bitcoin-crashed-first-now-stocks-follow-cementing-btc-s-lead-indicator-cred" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin&#39;s crash to $60,000 warned stocks first – now they&#39;re following</a>
+        <a href="https://www.coindesk.com/markets/2026/03/13/bitcoin-crashed-first-now-stocks-follow-cementing-btc-s-lead-indicator-cred" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin&#39;s recent crash to $60,000 warned stocks first – now they&#39;re following</a>
       </div>
       <div class="article-meta">
         <span class="meta-source">CoinDesk</span>
@@ -1378,30 +1511,6 @@
     <article
       class="article-card"
       data-tags="Crypto_Web3"
-      data-title="avalanche’s business chief says crypto must grow up and solve real problems"
-      data-summary=""
-      data-ts="1773327354"
-      onclick="window.open('https://www.coindesk.com/coindesk-news/2026/03/12/avalanche-s-business-chiefsays-crypto-must-grow-up-and-solve-real-problems', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.coindesk.com/coindesk-news/2026/03/12/avalanche-s-business-chiefsays-crypto-must-grow-up-and-solve-real-problems" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Avalanche’s business chief says crypto must grow up and solve real problems</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">CoinDesk</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Crypto Web3</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
-      data-tags="Crypto_Web3"
       data-title="lawsuit claims jpmorgan chase accounts served as ‘exclusive vehicle’ in $328 million crypto ponzi"
       data-summary="jpmorgan allegedly served as the “exclusive vehicle” for a $328 million crypto ponzi, funneling $253 million into goliath ventures."
       data-ts="1773326378"
@@ -1453,30 +1562,6 @@
     
     <article
       class="article-card"
-      data-tags="Crypto_Web3"
-      data-title="bitcoin selling intensifies across all wallet sizes despite price holding near $70,000"
-      data-summary=""
-      data-ts="1773325762"
-      onclick="window.open('https://www.coindesk.com/markets/2026/03/12/bitcoin-selling-intensifies-across-all-wallet-sizes-despite-price-holding-near-usd70-000', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.coindesk.com/markets/2026/03/12/bitcoin-selling-intensifies-across-all-wallet-sizes-despite-price-holding-near-usd70-000" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bitcoin selling intensifies across all wallet sizes despite price holding near $70,000</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">CoinDesk</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Crypto Web3</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
       data-tags="Open_Banking,Funding_MA"
       data-title="eightco shares jump 25% after $125 million raise backed by bitmine, ark and payward"
       data-summary="the funding round includes new governance roles, with tom lee joining eightco’s board and ark invest&#39;s brett winton serving as an advisor."
@@ -1497,30 +1582,6 @@
       <div class="article-tags">
         
         <span class="tag-badge">Open Banking</span>
-        
-        <span class="tag-badge">Funding MA</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
-      data-tags="Funding_MA"
-      data-title="eightco shares jump on $125 million funding commitment, investment in openai, beast industries"
-      data-summary=""
-      data-ts="1773324180"
-      onclick="window.open('https://www.coindesk.com/business/2026/03/12/eightco-shares-jump-on-usd125-million-funding-commitment-investment-in-openai-beast-industries', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.coindesk.com/business/2026/03/12/eightco-shares-jump-on-usd125-million-funding-commitment-investment-in-openai-beast-industries" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Eightco shares jump on $125 million funding commitment, investment in OpenAI, Beast Industries</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">CoinDesk</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <div class="article-tags">
         
         <span class="tag-badge">Funding MA</span>
         
@@ -1639,34 +1700,6 @@
     
     <article
       class="article-card"
-      data-tags="Crypto_Web3,Open_Banking"
-      data-title="hybrid crypto exchange grvt targets post-june token launch, raises community allocation to 28%"
-      data-summary="zksync-based dex grvt plans to launch its token after june 30, expanding community allocations to 28% as platform trading volumes surge."
-      data-ts="1773319802"
-      onclick="window.open('https://www.theblock.co/post/393389/hybrid-crypto-exchange-grvt-targets-post-june-token-launch-raises-community-allocation-to-28?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.theblock.co/post/393389/hybrid-crypto-exchange-grvt-targets-post-june-token-launch-raises-community-allocation-to-28?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Hybrid crypto exchange GRVT targets post-June token launch, raises community allocation to 28%</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">The Block</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <p class="article-summary">ZKsync-based DEX GRVT plans to launch its token after June 30, expanding community allocations to 28% as platform trading volumes surge.</p>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Crypto Web3</span>
-        
-        <span class="tag-badge">Open Banking</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
       data-tags="Payments,Funding_MA"
       data-title="how zip turned the most pressing bnpl challenge into a brand advantage"
       data-summary="financial services marketing rarely tackles trust head-on.. most brands assume it exists and build their messaging around authority, scale, or convenience. zip’s new campaign does something out of the box: it turns trust into the actual subject of its recent ad campaign and brand strategy. last month, the australian buy now pay later (bnpl) company … continue reading &#34;how zip turned the most pressing bnpl challenge into a brand advantage&#34; the post how zip turned the most pressing bnpl challenge into a brand advantage appeared first on tearsheet ."
@@ -1689,60 +1722,6 @@
         <span class="tag-badge">Payments</span>
         
         <span class="tag-badge">Funding MA</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
-      data-tags="Crypto_Web3,Central_Banking_Policy"
-      data-title="bank of england signals openness to revising sterling stablecoin caps amid industry pushback"
-      data-summary="boe deputy governor sarah breeden told lawmakers the central bank is open to alternative approaches that protect financial stability."
-      data-ts="1773314522"
-      onclick="window.open('https://www.theblock.co/post/393373/bank-of-england-signals-openness-to-revising-sterling-stablecoin-caps-amid-industry-pushback?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.theblock.co/post/393373/bank-of-england-signals-openness-to-revising-sterling-stablecoin-caps-amid-industry-pushback?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Bank of England signals openness to revising sterling stablecoin caps amid industry pushback</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">The Block</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <p class="article-summary">BOE Deputy Governor Sarah Breeden told lawmakers the central bank is open to alternative approaches that protect financial stability.</p>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Crypto Web3</span>
-        
-        <span class="tag-badge">Central Banking Policy</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
-      data-tags="Crypto_Web3"
-      data-title="pump.fun becomes solana’s first $1b revenue platform as ethereum, base, bsc and monad subdomains hint at cross-chain move"
-      data-summary="pump.fun tops $1 billion in revenue as domain records reveal ethereum, base, bsc, and monad subdomains amid potential cross-chain expansion."
-      data-ts="1773311455"
-      onclick="window.open('https://www.theblock.co/post/393358/pump-fun-becomes-solanas-first-1b-revenue-platform-as-ethereum-base-bsc-and-monad-subdomains-hint-at-cross-chain-move?utm_source=rss&amp;utm_medium=rss', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://www.theblock.co/post/393358/pump-fun-becomes-solanas-first-1b-revenue-platform-as-ethereum-base-bsc-and-monad-subdomains-hint-at-cross-chain-move?utm_source=rss&amp;utm_medium=rss" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Pump.fun becomes Solana’s first $1B revenue platform as Ethereum, Base, BSC and Monad subdomains hint at cross-chain move</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">The Block</span>
-        <span class="meta-sep">·</span>
-        <span>12 Mar 2026</span>
-      </div>
-      
-      <p class="article-summary">Pump.fun tops $1 billion in revenue as domain records reveal Ethereum, Base, BSC, and Monad subdomains amid potential cross-chain expansion.</p>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Crypto Web3</span>
         
       </div>
     </article>
@@ -1849,32 +1828,6 @@
       <div class="article-tags">
         
         <span class="tag-badge">Payments</span>
-        
-      </div>
-    </article>
-    
-    <article
-      class="article-card"
-      data-tags="Funding_MA"
-      data-title="cardiff fintech delio acquired by new york infrastructure firm ialta holdings"
-      data-summary="ialta holdings acquires delio to scale digital infrastructure for financial institutions, boosting cardiff’s status as a uk fintech hub. the post cardiff fintech delio acquired by new york infrastructure firm ialta holdings appeared first on the fintech times ."
-      data-ts="1773171006"
-      onclick="window.open('https://thefintechtimes.com/cardiff-fintech-delio-acquired-by-new-york-infrastructure-firm-ialta-holdings/', '_blank', 'noopener,noreferrer')"
-    >
-      <div class="article-title">
-        <a href="https://thefintechtimes.com/cardiff-fintech-delio-acquired-by-new-york-infrastructure-firm-ialta-holdings/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Cardiff Fintech Delio Acquired by New York Infrastructure Firm iAltA Holdings</a>
-      </div>
-      <div class="article-meta">
-        <span class="meta-source">The Fintech Times</span>
-        <span class="meta-sep">·</span>
-        <span>10 Mar 2026</span>
-      </div>
-      
-      <p class="article-summary">iAltA Holdings acquires Delio to scale digital infrastructure for financial institutions, boosting Cardiff’s status as a UK fintech hub. The post Cardiff Fintech Delio Acquired by New York Infrastructure Firm iAltA Holdings appeared first on The Fintech Times .</p>
-      
-      <div class="article-tags">
-        
-        <span class="tag-badge">Funding MA</span>
         
       </div>
     </article>
@@ -3305,10 +3258,40 @@
     
     <article
       class="article-card"
+      data-tags="Crypto_Web3,RegTech_Compliance,Funding_MA"
+      data-title="fca bans kasim garipoglu from working in uk financial services"
+      data-summary="kasimgaripoglu has been banned from working in uk financial services. the fca found he is not fit and proper because of his lack of honesty and integrity. mr garipoglu is the owner of a firm that provided online trading of foreign exchange and contracts.between april 2012 and december 2022, including when mr garipoglu was the chief executive and director at the firm and an approved person, he repeatedly demonstrated a disregard for regulatory requirements, undermined compliance and anti‑money laundering controls, and positively encouraged serious misconduct amongst his colleagues.he repeatedly overruled those advising him that his instructions were illegal and in breach of regulatory requirements. he consistently prioritised commercial advantage over regulatory requirements, including by regarding the potential for regulatory fines to be a business risk worth taking.he also deliberately provided false and misleading information to the fca and other regulators, instructed the forgery of a document to evidence that an employee lived at a uk address with him when neither of them did so, falsified a university degree certificate for himself and made inaccurate declarations to the fca in an authorisation application for another firm which he owned. in one instance, he instructed a colleague to impersonate him in communications and a phone call to the south african regulator.in another instance, he had his staff take a required anti-money laundering test on his behalf and passed off the result as his own and later denied this to the fca.therese chambers, joint executive director of enforcement and market oversight at the fca, said:&#39;mr garipoglu has consistently shown a blatant disregard of regulatory requirements and chose to run his business in a way that carried significant risk that serious money laundering would be facilitated. he has consistently sought to evade accountability for this. his conduct fell far below the standards expected of individuals in senior positions. he poses an ongoing risk to consumers and to the integrity of the uk financial system.&#39;notes to editorsread final notice 2026: kasim garipoglu (pdf)fighting financial crime is a priority in the fca’s 5-year strategy.the fca enables a fair and thriving financial services market for the good of consumers and the economy. find out more about the fca.the firm owned by mr garipoglu is no longer authorised by the fca.this was a complex investigation covering many years of misconduct, during which mr garipoglu deliberately obstructed the work of regulators by providing false and misleading information. mr garipoglu also sought to oppose the prohibition and attempted to prevent his misconduct from becoming known, referring the fca’s decision to the tribunal and then commencing an appeal in the court of appeal. both mr garipoglu’s tribunal reference and his appeal have since been struck out.whilst mr garipoglu has been prohibited, the fca has not been able to fine him due to the length of time since he was an approved person."
+      data-ts="1773402694"
+      onclick="window.open('https://www.fca.org.uk/news/press-releases/fca-bans-kasim-garipoglu-working-uk-financial-services', '_blank', 'noopener,noreferrer')"
+    >
+      <div class="article-title">
+        <a href="https://www.fca.org.uk/news/press-releases/fca-bans-kasim-garipoglu-working-uk-financial-services" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">FCA bans Kasim Garipoglu from working in UK financial services</a>
+      </div>
+      <div class="article-meta">
+        <span class="meta-source">Financial Conduct Authority (FCA)</span>
+        <span class="meta-sep">·</span>
+        <span>13 Mar 2026</span>
+      </div>
+      
+      <p class="article-summary">KasimGaripoglu has been banned from working in UK financial services. The FCA found he is not fit and proper because of his lack of honesty and integrity. Mr Garipoglu is the owner of a firm that provided online trading of foreign exchange and contracts.Between April 2012 and Dec...</p>
+      
+      <div class="article-tags">
+        
+        <span class="tag-badge">Crypto Web3</span>
+        
+        <span class="tag-badge">RegTech Compliance</span>
+        
+        <span class="tag-badge">Funding MA</span>
+        
+      </div>
+    </article>
+    
+    <article
+      class="article-card"
       data-tags="Open_Banking,Funding_MA,WealthTech"
       data-title="concept capital group update: administrators appointed"
       data-summary="on 9 march 2026, the high court placed concept capital group (ccg) into administration. btg are the administrators of the company. in july 2025, the fca announced high court proceedings against ccg and others over an alleged unauthorised investment scheme. ccg has been under a court order that temporarily froze its assets since then.ccg had promoted investments in static homes. ccg claimed these would be let to social housing tenants placed by local councils. investors were promised fixed returns and told the scheme was backed by the uk government, claims the fca considers were false or misleading.while the administration was not initiated by the fca, it has put the fca’s high court proceedings against ccg on hold. the administrators will take control of ccg and investors’ claims will be handled as part of the administration process. the fca will support the administrators as needed and will continue to communicate with them.the fca’s claim against the other defendants - ian anthony elliott, adrian felix, ayub swaibu, edmund brew, ernest kargbo (also known as ernest moore), raymondip bedi (also known as martin swann) and gateridge consulting limited - will continue."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/concept-capital-group-update-administrators-appointed', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3338,7 +3321,7 @@
       data-tags="Payments,Open_Banking,WealthTech"
       data-title="second charge mortgage firms told to raise standards for consumers"
       data-summary="lenders and brokers in thesecond charge mortgagemarket need toconsiderhow theyadvise customers, assess affordability and charge fees. an fca review has found that weaknesses in some firms’ practices could put borrowers, particularly those consolidating debt, at increased risk of financial harm.second charge mortgages are often used by customers with high existing levels of debt and low financial resilience. the fca’s review found examples of good practice across the sector but also issues that raise concerns about whether firms are meeting expectations, including under the consumer duty. the issues identified in the review include:affordability assessments that appeared to overlook key living expenses.advice that steered customers towards debt consolidation when it was not clear if it was appropriate.inadequate record keeping. unclear fees, often added to loans, making comparisons difficult.david geale, executive director of payments and digital finance at the fca, said:&#39;the second charge market is relied on by people often already heavily in debt. it’s vital it works well, but we’ve found that standards are not always where they need to be. this needs to change.&#39; the fca is calling on all second charge firms to consider the findings carefully and take appropriate action. brokers for the wider mortgage market should consider the findings, especially on record keeping and quality assurance, and whether they can make improvements.the regulator has continued its engagement with the firms included in the review to ensure shortcomings are addressed. while the regulator has already seen some of the market act on its calls to improve customer understanding, over the next year it will: continue to work with firms to drive improvements across the second charge marketkeep monitoring second charge firms and take action where it has concerns – using the full range of regulatory powers where neededbegin to consider any mortgage policy changes needed to support good outcomes for consumers consolidating debt.notes to editorsread second charge mortgages – improving outcomes for consumers.second charge mortgages let homeowners borrow extra money using the equity in their home, without having to change their existing mortgage.second charge mortgages make up a small proportion of the total mortgage market - typically less than 4% of regulated mortgage sales.we have publishedour new regulatory priorities retail mortgages report, which sets out key actions firms should take over the next year, plus the areaswe’llbe focusing on. the fca enables a fair and thriving financial services market for the good of consumers and the economy. find out more about the fca."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/press-releases/second-charge-mortgage-firms-told-raise-standards-consumers', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3368,7 +3351,7 @@
       data-tags="Payments"
       data-title="fca imposes restrictions on sendsii ltd"
       data-summary="on 23 january 2026, the fca imposed requirements on sendsii ltd which prevent them from carrying out any regulated activity. the fca has issued a first supervisory notice to sendsii ltd after hm revenue and customs (hmrc) suspended the firm’s registration on 9 october 2025. the suspension means that sendsii ltd no longer met the conditions required for its fca authorisation under the payment services regulations 2017.these requirements prevent sendsii ltd from carrying out any regulated activity, including money remittance, without the fca’s prior written consent. the firm is required to return all funds held for or on behalf of existing customers in accordance with all relevant legal and regulatory requirements.full details of the requirements can be found on the financial services register.consumers who need to send or receive money should use an alternative authorised payment firm. if you were expecting funds from sendsii ltd and have not received them, please contact our supervision hub."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/fca-imposes-restrictions-sendsii-ltd', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3394,7 +3377,7 @@
       data-tags="WealthTech"
       data-title="man jailed for running illegal sale-and-rent-back scheme targeting struggling homeowners"
       data-summary="rajinder gill and accomplices have been sentenced for their involvement in a sale-and-rent-back scheme. mr gill has been sentenced to two and a half years in prison for running a sale-and-rent-back scheme without being authorised and illegally providing credit agreements and mortgages. as accomplices in the scheme, amandeep heer received a community order for 2 years with a condition of 250 hours of unpaid work, and jetinder sandhu has completed 100 hours&#39; unpaid work over 12 months (as a condition of a 15-month suspended imprisonment, which was suspended for 18 months).through secure property consultants ltd, mr gill targeted homeowners in financial difficulty, claiming he could sell their homes quickly, offering them cash advances and saying they could stay in homes as tenants. victims were encouraged to sell their houses at less than market value, while he charged excessive, confusing or hidden fees – totalling £925,233. some were evicted from their homes. steve smart, executive director of enforcement and market oversight at the fca, said:&#39;mr gill and his accomplices preyed on vulnerable homeowners, turning financial difficulty into misery to fill their own pockets. sale-and-rent-back comes with significant risks. if you are considering using it, always check the provider is authorised by the fca.’in sentencing mr gill, his honour judge weekes said &#39;there was a pattern of systematic exploitation’ and the &#39;victim impact [was] stark and troubling across the victims&#39;. he added mr gill was &#39;dishonest and manipulative&#39; and the sale-and-rent-back agreements &#39;particularly odious&#39;.once mr gill became aware of the fca’s investigation he tried to conceal these activities and shut down the company, telling clients not to talk to the regulator.mr sandhu and ms heer, who was mr gill’s partner, supported the offending.mr gill pleaded guilty to 27 offences in relation to sale-and-rent-back agreements as well as credit agreements/mortgage contracts. he asked the court to consider a further 12 offences of the same nature at sentencing.following a trial, ms heer was found guilty of committing 3 similar offences.the fca has commenced confiscation proceedings to deprive the defendants of the proceeds of their crimes with a view to compensating victims.mr gill was disqualified from being a director of a company for 8 years.consumers should check the fca firm checker to make sure the firm they&#39;re dealing with is authorised.notes to editorsrajinder gill (date of birth: 27 october 1976) entered guilty pleas on 19 december 2025. amandeep heer (date of birth: 7 august 1980) was found guilty after a trial on 9 february 2026. they were both sentenced on 10 march 2026. jetinder sandhu (date of birth: 27 january 1979) was sentenced on 15 august 2024, having pleaded guilty on 7 june 2024 – this was previously subject to reporting restrictions.mr sandhu was sentenced on 15 august 2024 to 15 months’ imprisonment. this was suspended for 18 months with the conditions of completing 100 hours of unpaid work within 12 months and attending rehabilitation activity for up to 10 days.the misconduct occurred between 1 september 2014 and 7 november 2018.sale‑and‑rent‑back schemes involve homeowners selling their property – often at a discount – with an agreement to stay in their home as tenants paying rent. they’re usually a last resort for people facing debt or repossession and are considered high risk, and firms offering them must be authorised by the fca.in 2013/14, the fca investigated mr gill for entering into sale-and-rent-back agreements with members of the public. in november 2013, mr gill signed an undertaking not to enter into, promote, administer, advise on or arrange sale-and-rent-back agreements, and agreed to remove all references to the products in adverts his companies placed in the media. in august 2014, he signed a further undertaking not to conduct any regulated activity without authorisation.under section 19 of the financial services and markets act 2000 (fsma), a person cannot carry on a regulated activity in the uk unless they are fca authorised or exempt (this is the general prohibition). any person who breaches section 19 of fsma is committing a criminal offence for which the maximum sentence is 2 years’ imprisonment.the fca enables a fair and thriving financial services market for the good of consumers and the economy. find out more about the fca."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/press-releases/man-jailed-illegal-sale-rent-back-scheme-struggling-homeowners', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3420,7 +3403,7 @@
       data-tags="Payments,Central_Banking_Policy"
       data-title="fca announces senior leadership appointments"
       data-summary="we have appointed 2 new senior leaders, further strengthening our capability across key areas of our remit. chris knight will join us in july 2026 as director of insurance within our supervision, policy and competition (spc) division. he joins the fca from legal &amp; general, where he has been the group chief risk officer for the last 5 years and member of the group management committee. prior to this, he was ceo of legal &amp; general retail retirement for 3 years.david lymburn joined the payment systems regulator (psr) on 23 february 2026 as interim deputy managing director. david brings over 15 years’ experience in financial services, including as chief operating officer and global payments programme director at nordea bank and payments roles at the royal bank of scotland and lloyds banking group. he will serve in this interim role while the permanent recruitment takes place.sarah pritchard, deputy chief executive, fca, said:&#39;we welcome chris and david into their new roles. they bring considerable industry and leadership experience and will play a vital part in driving forward our strategic priorities – strengthening our capabilities, accelerating our journey to become a smarter regulator, and ensuring we continue to support economic growth and improve lives across the uk.&#39;"
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/fca-announces-senior-leadership-appointments', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3448,7 +3431,7 @@
       data-tags="Funding_MA"
       data-title="fca warns customers of hdh investment services limited"
       data-summary="we&#39;re concerned that hdh investment services limited may have given unsuitable financial advice to some of its customers, potentially leading to financial loss. we recently placed restrictions on hdh investment services limited (hdh). from 20 january 2026, hdh agreed to stop carrying out all regulated activities. this now means the firm can&#39;t give investment advice.hdh also agreed to write to all customers to explain what these restrictions mean for them. what customers should do nowif you think you were given unsuitable advice, or you&#39;re unhappy with the service you received from hdh, you have the right to complain.we know this news may be worrying. if you have concerns, you can use our contact form to get in touch. if you&#39;re a customer of hdh and need financial advice, you should contact another fca‑authorised financial adviser. you can find information on finding an adviser on moneyhelper. you can also use the fca firm checker to make sure a firm is authorised and has permission to provide the services you&#39;re looking for.stay alert to scamsif you&#39;re a customer of hdh, you may be contacted directly by the firm. however, if you&#39;re unsure whether a call is genuine, end the call immediately and contact them using the details on firm checker.you may also be contacted by the fca. but if you&#39;re concerned about who you&#39;re speaking to, please do call us back on 0800 111 6768. our team won&#39;t mind waiting for you to check. find out more about how to spot fake fca communications. people are being increasingly targeted by recovery room scams. this includes where fraudsters approach investors who have been given unsuitable advice, offering to help them for an upfront fee. find out more about how to protect yourself from scams."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/fca-warns-customers-hdh-investment-services-limited', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3474,7 +3457,7 @@
       data-tags="WealthTech"
       data-title="fca fines john wood group plc for issuing misleading statements"
       data-summary="john wood group plc (wood group) has been fined £12,993,700 for publishing inaccurate information in its financial results. following the poor performance of certain projects, wood group’s accounting judgements were inappropriately influenced by its desire to maintain previously stated financial results. wood group did not have adequate systems, controls or procedures to prevent this from happening.this resulted in wood group publishing inaccurate information in its full-year 2022 and 2023 financial results and the half-year 2024 results. the company failed to take reasonable care to ensure that its announcements about those results were not false or misleading.these issues came to light from november 2024 onwards. wood group’s share price fell by 78% by april 2025 and its shares were suspended in may 2025.steve smart, executive director of enforcement and market oversight, said:&#39;investors rely on accurate information to make decisions. wood group failed to provide this and fell well short of the high standards we expect of listed companies.&#39;the fca opened its investigation into wood group in june 2025 and concluded it within 9 months. this is an example of how the fca is improving the pace of its enforcement investigations.wood group accepted the findings and so qualified for a 30% reduction in its financial penalty.notes to editorsfinal notice 2026: john wood group plc (pdf)wood group agreed to resolve the case at an early stage and qualified for a 30% discount on the penalty imposed. without this discount, the fca would have imposed a financial penalty of £18,562,500 on wood group.the fca announced its investigation of wood group in june 2025: fca press release.the fca has imposed the financial penalty on wood group for the following breaches:listing rule 1.3.3r (misleading information must not be published) by failing to take reasonable care to ensure that its announcements were not misleading, false or deceptive and did not omit anything likely to affect the import of the information; andlisting principle 1 (a listed company must take reasonable steps to establish and maintain adequate procedures, systems and controls to enable it to comply with its obligations)on 30 october 2025, wood group published its restated financial results for the full years 2022 and 2023, which included material adjustments arising from the misconduct described above."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/press-releases/fca-fines-john-wood-group-plc-issuing-misleading-statements', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3500,7 +3483,7 @@
       data-tags="RegTech_Compliance,WealthTech"
       data-title="motor finance compensation scheme to include implementation period"
       data-summary="we&#39;d also streamline the scheme, so millions get compensation in 2026. we&#39;re considering over 1,000 responses to our proposals for a compensation scheme for motor finance customers who were treated unfairly.if we proceed with a scheme, we are likely to make several changes. if we do go ahead, we expect to publish final rules in late march. the timing of publication will be outside market hours and we&#39;ll confirm the date in advance. final decisions on the scheme have not yet been made. but to help firms prepare and ensure consumers get any money owed promptly, we&#39;re setting out some details now on how we intend to streamline the consumer journey and make it smoother for firms to operate.given the scale and complexity of the scheme and in response to feedback, we&#39;re likely to introduce an implementation period of 3 months, with up to 5 months for older agreements. firms could choose to process claims under the scheme sooner.we would also streamline the process for consumers and firms.people who complain before the scheme starts would no longer be asked if they wish to opt out. instead, within 3 months of the end of the implementation period, their lender would tell them whether they&#39;re owed compensation, and how much. consumers receiving a redress offer would be able to accept it immediately, rather than waiting for a final determination. firms would not be required to write to customers via recorded delivery. we would allow a range of channels that best meet consumers&#39; needs with appropriate safeguards to prevent fraud. even with an implementation period, streamlining the process means millions of people would receive compensation in 2026.our advice remains that anyone concerned they weren&#39;t told about commission involved in their motor finance deal should complain now. doing so means they should get any compensation sooner. there is no need to use a claims management company (cmc) or law firm, and those who do may lose over 30% of any compensation.we&#39;ve cracked down on poor practice by fca-regulated cmcs. over 800 misleading adverts have been removed or amended since january 2024 and we&#39;ve intervened with 5 cmcs causing harm: 2 reduced exit fees and 4 agreed to stop taking on new clients until they can show they comply with our rules.the likely changes to the scheme were supported by many consumer groups and firms that responded to our consultation. as well as providing a better experience for consumers, the changes would help keep the cost of delivering the scheme proportionate, supporting a well-functioning market for the millions of people that rely on it."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/statements/motor-finance-compensation-scheme-include-implementation-period', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3528,7 +3511,7 @@
       data-tags="RegTech_Compliance"
       data-title="opbas identifies areas where anti-money laundering supervisors can improve"
       data-summary="the latest report from the office for professional body anti-money laundering supervision (opbas) finds there is still room for improvement. the anti-money laundering supervisors of professional services firms are more effective than at any time since 2018. however, opbas remains concerned that their enforcement lacks the teeth to deter firms from falling short of minimum standards.opbas’s latest report found professional body supervisors (pbss) generally continue to demonstrate good levels of compliance. yet some pbss continue to perform poorly in their enforcement approach relative to other areas, and supervision could also be improved. opbas is concerned that for some pbss, their dual role as both a membership organisation and a supervisor can hinder effective action.mark francis, director, specialists at the fca, said: &#39;fighting financial crime is a priority for the fca. in recent years, opbas has driven progress in the way money laundering is tackled in the legal and accountancy sectors, but improvements are still required.’opbas is housed within the fca and oversees 25 pbss tasked with preventing financial crime in the accountancy and legal sectors.opbas, founded in 2018, has used an increasing range of tools to drive improvements among pbss. last year, opbas took its first enforcement action against a pbs that failed to meet its requirements under the money laundering regulations.in 2025, the government decided that the fca will assume anti-money laundering (aml) and counter terrorist financing (ctf) supervision in the accountancy and legal sectors. this reflects the need to simplify the supervision of professional services, ensure more consistent oversight and improve efforts to identify and disrupt crime."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/opbas-aml-supervisors-areas-improve', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3554,7 +3537,7 @@
       data-tags="Funding_MA,WealthTech"
       data-title="uk listing rules for investment entities review"
       data-summary="we are bringing forward a review of some aspects of the uk listing rules to consider how they apply to specific types of investment entities. as part of the primary markets effectivenessreviewwe explored which types of investment entities could be eligible to be listed. since introducing the new listingruleswe have heard from stakeholders that these eligibility criteria, particularlyregardingrisk-spreading, may be unduly restrictive. we will use this review to assess if changes should be made.as part of this review, we will also conduct targeted work to assess howourrules, in the context of company law, ensure that boards support strong shareholder rights and engagement and manage conflicts of interests.we plan to set out proposals in a consultation paper and to complete the work by the end of the year."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/statements/uk-listing-rules-investment-entities-review', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3582,7 +3565,7 @@
       data-tags="Funding_MA"
       data-title="fca opens authorisation gateway for targeted support"
       data-summary="firms can now apply for permission to provide targeted support. targeted support is a once in a generation change that will help millions navigate their financial lives. from 6 april 2026, people’s banks, pension providers, or other financial firms that are authorised for targeted support can provide suggestions designed for groups of consumers with common characteristics. this will help them make important decisions across their pensions and investments.we want authorised firms to be ready to offer the new service as soon as the rules take effect. and, for these firms to take advantage of the reforms, to be bold and provide support for their customers.an important milestonecurrently, consumers don’t have access to the help they need to make these important decisions. we estimate around 23 million consumers are currently underserved by the markets for advice and guidance.targeted support will help fill the gap between generic guidance and individualised advice and help consumers access the support they need, at a cost they can afford, when they need it, so that they can make informed financial decisions.the opening of the targeted support authorisations gateway marks an important milestone in our work to help consumers navigate their financial lives.support servicewe launched our pre-application support service (pass) for targeted support last year and have engaged with a range of firms so that they understand what is expected for a good quality and complete application for the targeted support regulated activity.we encourage firms with questions about the authorisations process to engage with us through the pass. firms can submit a pass form via connect.we welcome the engagement we have had so far with firms developing their targeted support propositions and look forward to this continuing engagement.how to applyfirms can submit applications for targeted support permissions via connect.find out more."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/news-stories/fca-opens-authorisation-gateway-targeted-support', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3608,7 +3591,7 @@
       data-tags="Crypto_Web3,Payments,Open_Banking,Central_Banking_Policy"
       data-title="payments vision delivery committee publishes payments forward plan"
       data-summary="the payments vision delivery committee (the committee) has published the payments forward plan (the plan). read the plan on gov.ukthe committee comprises:hm treasurybank of englandfinancial conduct authoritypayment systems regulatorthe plan sets out upcoming initiatives across retail and wholesale payments, including elements of digital assets. recent publications on open banking, stablecoins and contactless limits, alongside the initiatives in the plan, show the high level of activity across the sector.the plan provides clarity on what is coming and when, helping firms plan ahead and focus on innovation. the plan sets out actions to deliver the government’s national payments vision of a trusted, world-leading payments ecosystem built on next-generation technology, offering consumers and businesses a choice of payment methods.the committee will continue to consider our collective impact on firms and support competition, innovation and economic growth.going forwards, the committee has agreed to add an enhanced focus on payments to the regulatory initiatives grid in its first 2027 publication."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/statements/payments-forward-plan-published', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3640,7 +3623,7 @@
       data-tags="RegTech_Compliance"
       data-title="a smarter approach to communicating our regulatory priorities"
       data-summary="we&#39;ve launched our new regulatory priorities reports, starting with the insurance sector. this marks a new approach that will help to transform our supervision and streamline regulation.we expect regulated firms to follow the rules and stay informed about any changes. this is important for maintaining a safe and resilient market. our mission to be a smarter regulator means reducing burden where we can, so that firms can get the information they need as efficiently as possible.our regulatory priorities publications are part of this drive to simplify things. they replace our portfolio letters, which set out our expectations for firms in various markets.there were more than 40 of these letters, with some firms needing to work through several to understand what they needed to do. we know these created an extra layer of complexity, and we’ve responded to these concerns.what firms can expectthere are just 9 of the new publications, covering each sector at a higher level. we’ve designed them to make it easy for firms to get to the information that affects them directly, with the right links to the detail they need.we’ve tested our approach with a pilot for insurance firms, which has helped us make sure the documents are easy to use. we’ve aimed to have clear content and easy navigation, summing up each of our priorities on one page with clear actions for firms.the reports also set out what’s coming up in each sector - making them a succinct one-stop shop for regulatory information.we’ll publish them more frequently too, with an annual cycle - so it’s easier for firms to stay up to date with policies and issues as they develop.the purpose remains the same though. firms’ boards and chief executives should read these reports carefully, review the priorities we’ve set out – and act where they need to.we want to keep the conversation going about how we can streamline our regulation and simplify our communication, letting firms spend more time serving their customers and creating growth. we hope these new reports will be part of that drive and are keen to know how they work for firms."
-      data-ts="1773388759"
+      data-ts="1773402694"
       onclick="window.open('https://www.fca.org.uk/news/blogs/smarter-approach-communicating-our-regulatory-priorities', '_blank', 'noopener,noreferrer')"
     >
       <div class="article-title">
@@ -3688,42 +3671,34 @@
   const CARDS = document.querySelectorAll('.article-card');
   let selectedTags = new Set();
   let searchQuery = '';
-  let timeWindow = 0; // seconds; 0 = all time
 
   function filterArticles() {
-    const now = Math.floor(Date.now() / 1000);
     let visible = 0;
 
     CARDS.forEach(card => {
       const tags    = card.dataset.tags ? card.dataset.tags.split(',') : [];
       const title   = card.dataset.title   || '';
       const summary = card.dataset.summary || '';
-      const ts      = parseInt(card.dataset.ts || '0', 10);
 
-      const tagMatch  = selectedTags.size === 0 ||
-                        [...selectedTags].some(t => tags.includes(t));
+      const tagMatch    = selectedTags.size === 0 ||
+                          [...selectedTags].some(t => tags.includes(t));
       const searchMatch = searchQuery === '' ||
                           title.includes(searchQuery) ||
                           summary.includes(searchQuery);
-      const timeMatch = timeWindow === 0 || (now - ts) <= timeWindow;
 
-      const show = tagMatch && searchMatch && timeMatch;
+      const show = tagMatch && searchMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
-    // Stats bar
     const bar = document.getElementById('statsBar');
     if (bar) bar.innerHTML = `Showing <span>${visible}</span> article${visible !== 1 ? 's' : ''}`;
 
-    // Empty state
     const empty = document.getElementById('emptyState');
     if (empty) empty.classList.toggle('visible', visible === 0);
 
-    // Clear button — show if any filter is active
     const clearBtn = document.getElementById('clearBtn');
-    const hasFilter = selectedTags.size > 0 || searchQuery !== '' || timeWindow !== 0;
-    if (clearBtn) clearBtn.classList.toggle('visible', hasFilter);
+    if (clearBtn) clearBtn.classList.toggle('visible', selectedTags.size > 0 || searchQuery !== '');
   }
 
   function toggleTag(tagKey, btn) {
@@ -3751,22 +3726,12 @@
     filterArticles();
   }
 
-  function setTimeWindow(seconds, btn) {
-    timeWindow = seconds;
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filterArticles();
-  }
-
   function clearFilters() {
     selectedTags.clear();
     searchQuery = '';
-    timeWindow  = 0;
     document.getElementById('searchInput').value = '';
     document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.all-btn').classList.add('active');
-    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.time-btn[data-window="0"]').classList.add('active');
     filterArticles();
   }
 </script>
